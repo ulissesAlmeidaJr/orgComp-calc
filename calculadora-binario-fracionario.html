@@ -5,35 +5,59 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!--bootstrap-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <!--//-->
+    <!--Arquivo CSS-->
+    <link rel="stylesheet" href="style/style.css">
+    <!--//-->
+    
+
     <title>Document</title>
     <script type='module' src="main.js"></script>
 
 </head>
 
 <body>
-    <h1>Calculadora Binário Fracionário</h1>
+
+    <header>
+        <div class="container-1">
+            <div class="top">
+                <div class="title">
+                    <h1>Calculadora Binário Fracionário</h1>
+                </div>
+            </div>
+            
+            <section>
+            <form action="" class="form">
+                <p>Tipo de conta</p>
+                <div class="input-1">                 
+                    <select name="tipoPrecisao" id="selectPrec" size="1" onchange="mudarLabel();">
+                        <option value="casas">Casas Decimais</option>
+                        <option value="porcentagem">Porcentagem Mínima</option>
+                    </select>
+                </div><!--Input-1 -->
+                
+                <div class="input-2">
+                    <label for="deciInput">Número Decimal:</label>
+                    <input type="text" id="deciInput" required>
+                </div><!--Input-2 -->
+                
+                <div class="input-2">
+                    <label for="precision" id="labelPrec">Casas Decimais de Precisão: </label>
+                    <input type="text" id="precision">
+                </div>    
+                <br>
+                <div class="input-3">
+                    <input type="button" value="Converter" onclick="converterbtn();" required>
+                </div><!--Input-3-->
+            </form>
+        </div><!--Continer -->
+    </header>
 
 
-    <select name="tipoPrecisao" id="selectPrec" size="1" onchange="mudarLabel();">
-        <option value="casas">Casas Decimais</option>
-        <option value="porcentagem">Porcentagem Mínima</option>
-    </select>
 
-    <br>
-
-    <label for="deciInput">Número Decimal:</label>
-    <input type="text" id="deciInput">
-
-    <br>
-
-    <label for="precision" id="labelPrec">Casas Decimais de Precisão: </label>
-    <input type="text" id="precision">
-
-    <br>
-
-    <input type="button" value="Converter" onclick="converterbtn();">
-
-<h1 style="border-style: solid;;"></h1>
 </body>
 
 </html>
