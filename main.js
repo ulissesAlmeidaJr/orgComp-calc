@@ -47,7 +47,7 @@ function calcPorCasa(){
 
     binFrac = "";
     while (true){
-        if (deciFracTemp.gt(1)){
+        if (deciFracTemp.gte(1)){
             deciFracTemp = deciFracTemp.minus(1);
         }
 
@@ -61,7 +61,7 @@ function calcPorCasa(){
 
     }
 
-    alert("Resultado...." + binFrac);
+    alert("Resultado..: " + binInt + "." + binFrac);
 }
 
 
