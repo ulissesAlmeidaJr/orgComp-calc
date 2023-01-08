@@ -17,7 +17,7 @@ window.mudarLabel = function mudarLabel(){
 }
 
 window.teste = function teste(){
-    return binFracParaDecimal("1").toString();
+    return 0;
     
 }
 
@@ -32,9 +32,9 @@ function binFracParaDecimal(binFrac){
     return deciValue;
 }
 
-/* function calcularPrecisao(numeroCorreto, numeroIncerto){
-
-} */
+function calcularPrecisaoPerc(numeroIncerto, numeroCorreto){
+    return (numeroIncerto.div(numeroCorreto)).multipliedBy(100);
+} 
 
 
 function calcPorCasa(){
@@ -78,46 +78,49 @@ function calcPorCasa(){
     alert("Resultado..: " + binInt + "." + binFrac);
 }
 
-// function calcPorPerc(){
-//     var deciNum, casasPrec;
-//     var deciInt, deciFrac, deciFracTemp;
-//     var binInt, binFrac;
+function calcPorPerc(){
 
-//     // Entradas
-//     deciNum = document.getElementById("deciInput").value;
-//     casasPrec = document.getElementById("precision").value;
+    var deciNum, percPrec;
+    var deciInt, deciFrac, deciFracTemp;
+    var binInt, binFrac;
+    var precisaoAtual;
 
-//     // Separando parte inteira de parte fracionária
-//     deciInt = Math.trunc(deciNum);
-//     if (!deciNum.includes(".")){
-//         deciNum = deciNum + ".0";
-//     }
-//     deciFrac = '0.' + deciNum.split('.')[1]
+    // Entradas
+    deciNum = document.getElementById("deciInput").value;
+    percPrec = document.getElementById("precision").value;
 
-//     // Convertendo parte inteira para binário
-//     binInt = parseInt(deciInt).toString(2);
+    // Separando parte inteira de parte fracionária
+    deciInt = Math.trunc(deciNum);
+    if (!deciNum.includes(".")){
+        deciNum = deciNum + ".0";
+    }
+    deciFrac = '0.' + deciNum.split('.')[1]
 
-//     // convertendo parte fracionária para binário
-//     deciFracTemp = BigNumber(deciFrac);
+    // Convertendo parte inteira para binário
+    binInt = parseInt(deciInt).toString(2);
 
-//     binFrac = "";
-//     while (true){
-//         if (deciFracTemp.gte(1)){
-//             deciFracTemp = deciFracTemp.minus(1);
-//         }
+    // convertendo parte fracionária para binário
+    deciFracTemp = BigNumber(deciFrac);
 
-//         deciFracTemp = deciFracTemp.multipliedBy(2);
-//         binFrac += Math.trunc(deciFracTemp);
+    binFrac = "";
+    while (true){
+        if (deciFracTemp.gte(1)){
+            deciFracTemp = deciFracTemp.minus(1);
+        }
 
-//         if (binFrac.length == casasPrec){
-//             break;
-//         }
+        deciFracTemp = deciFracTemp.multipliedBy(2);
+        binFrac += Math.trunc(deciFracTemp);
+
+        precisaoAtual = calcularPrecisaoPerc(binFracParaDecimal(binFrac), BigNumber(deciFrac));
+        if (precisaoAtual.gte(percPrec)){
+            break;
+        }
 
 
-//     }
+    }
 
-//     alert("Resultado..: " + binInt + "." + binFrac);
-// }
+    alert("Resultado..: " + binInt + "." + binFrac + " Com " + precisaoAtual + "% de precisão");
+}
 
 window.converterbtn = function converterbtn(){
     var valor;
