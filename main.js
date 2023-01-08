@@ -37,6 +37,9 @@ function calcPorCasa(){
 
     // Separando parte inteira de parte fracionária
     deciInt = Math.trunc(deciNum);
+    if (!deciNum.includes(".")){
+        deciNum = deciNum + ".0";
+    }
     deciFrac = '0.' + deciNum.split('.')[1]
 
     // Convertendo parte inteira para binário
